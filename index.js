@@ -38,11 +38,11 @@ module.exports = new EventEmitter();
  *
  * @return RETS Client
  */
-module.exports.getClient = function(loginUrl, username, password) {
+module.exports.getClient = function(loginUrl, username, password, headers) {
 
     var client = new Client();
 
-    auth.login(loginUrl, username, password, function(error, systemData) {
+    auth.login(loginUrl, username, password, headers, function(error, systemData) {
         if (error) {
 
             client.emit('connection.failure', error);
